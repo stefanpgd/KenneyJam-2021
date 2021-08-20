@@ -3,15 +3,18 @@ using UnityEngine;
 public class ShipMovement : MonoBehaviour
 {
     [SerializeField] private float boosts;
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private float startMoveSpeed;
     [SerializeField] private Transform directionVector;
+    [SerializeField] private ParticleSystem lockEffect;
     
     private Orbit activeOrbit;
     private Vector3 velocity;
     private bool inOrbit = false;
+    private float moveSpeed;
 
     private void Start()
     {
+        moveSpeed = startMoveSpeed;
         velocity = directionVector.position - transform.position;
         velocity.Normalize();
         velocity *= moveSpeed;
@@ -24,6 +27,7 @@ public class ShipMovement : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Space))
             {
                 activeOrbit.UnlockPlayerFromOrbit();
+                moveSpeed = activeOrbit.GetOrbitSpeed();
                 activeOrbit = null;
 
                 velocity = directionVector.position - transform.position;
@@ -46,6 +50,7 @@ public class ShipMovement : MonoBehaviour
             inOrbit = true;
             activeOrbit = collision.gameObject.GetComponent<Orbit>();
             activeOrbit.LockPlayerIntoOrbit(transform);
+            lockEffect.Play();
         }
     }
 }

@@ -5,17 +5,28 @@ public class Orbit : MonoBehaviour
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float orbitSize;
     [SerializeField] private bool TurnsLeft;
-
-    public float degrees;
+    [SerializeField] private Transform orbitRing;
+    [SerializeField] private Transform orbitVisuals;
+    [SerializeField] private CircleCollider2D circleCollider;
+    [SerializeField] private float baseArtRotationSpeed;
+    [SerializeField] private float artRotationSpeedOffset;
 
     private bool playerInOrbit;
     private Transform playerTransform;
     private float angle;
     private Vector2 startPosition;
 
+    private float artAngle;
+    private float artRotationSpeed;
+
     private void Start()
     {
         startPosition = transform.position;
+        orbitRing.localScale = new Vector3(orbitSize, orbitSize, orbitSize);
+        circleCollider.radius *= orbitSize;
+
+        artAngle = Random.Range(-180f, 180);
+        artRotationSpeed = Random.Range(baseArtRotationSpeed - artRotationSpeedOffset, baseArtRotationSpeed + artRotationSpeedOffset);
     }
 
     public void LockPlayerIntoOrbit(Transform pt)
@@ -36,6 +47,11 @@ public class Orbit : MonoBehaviour
         playerInOrbit = false;
     }
 
+    public float GetOrbitSpeed()
+    {
+        return rotationSpeed;
+    }
+
     private void Update()
     {
         if(playerInOrbit)
@@ -49,22 +65,33 @@ public class Orbit : MonoBehaviour
                 angle -= rotationSpeed * Time.deltaTime;
             }
 
-            float x = orbitSize * Mathf.Cos(angle);
-            float y = orbitSize * Mathf.Sin(angle);
+            float x = circleCollider.radius * Mathf.Cos(angle);
+            float y = circleCollider.radius * Mathf.Sin(angle);
             Vector2 polarCoords = new Vector2(x, y);
             Vector2 destination = polarCoords + startPosition;
             playerTransform.position = destination;
 
+            float degrees = angle * Mathf.Rad2Deg;
+
             if(TurnsLeft)
             {
-                float degrees = angle * Mathf.Rad2Deg;
                 playerTransform.rotation = Quaternion.Euler(0f, 0f, degrees);
             }
             else
             {
-                float degrees = angle * Mathf.Rad2Deg;
                 playerTransform.rotation = Quaternion.Euler(0f, 0f, degrees + 180);
             }
+        }
+
+        if(TurnsLeft)
+        {
+            artAngle += artRotationSpeed * Time.deltaTime;
+            orbitVisuals.transform.rotation = Quaternion.Euler(0f, 0f, artAngle);
+        }
+        else
+        {
+            artAngle -= artRotationSpeed * Time.deltaTime;
+            orbitVisuals.transform.rotation = Quaternion.Euler(0f, 0f, artAngle);
         }
     }
 }
