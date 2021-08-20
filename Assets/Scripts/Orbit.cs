@@ -4,6 +4,7 @@ public class Orbit : MonoBehaviour
 {
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float orbitSize;
+    [SerializeField] private bool TurnsLeft;
 
     public float degrees;
 
@@ -39,15 +40,31 @@ public class Orbit : MonoBehaviour
     {
         if(playerInOrbit)
         {
-            angle += rotationSpeed * Time.deltaTime;
+            if(TurnsLeft)
+            {
+                angle += rotationSpeed * Time.deltaTime;
+            }
+            else
+            {
+                angle -= rotationSpeed * Time.deltaTime;
+            }
+
             float x = orbitSize * Mathf.Cos(angle);
             float y = orbitSize * Mathf.Sin(angle);
             Vector2 polarCoords = new Vector2(x, y);
             Vector2 destination = polarCoords + startPosition;
             playerTransform.position = destination;
 
-            float degrees = angle * Mathf.Rad2Deg;
-            playerTransform.rotation = Quaternion.Euler(0f, 0f, degrees);
+            if(TurnsLeft)
+            {
+                float degrees = angle * Mathf.Rad2Deg;
+                playerTransform.rotation = Quaternion.Euler(0f, 0f, degrees);
+            }
+            else
+            {
+                float degrees = angle * Mathf.Rad2Deg;
+                playerTransform.rotation = Quaternion.Euler(0f, 0f, degrees + 180);
+            }
         }
     }
 }

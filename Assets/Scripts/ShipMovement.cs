@@ -33,8 +33,10 @@ public class ShipMovement : MonoBehaviour
                 inOrbit = false;
             }
         }
-
-        transform.position += velocity * Time.deltaTime;
+        else
+        {
+            transform.position += velocity * Time.deltaTime;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

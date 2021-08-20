@@ -493,6 +493,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 3
   orbitSize: 1
+  TurnsLeft: 0
   degrees: 0
 --- !u!58 &1105545878
 CircleCollider2D:
@@ -589,6 +590,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 3
   orbitSize: 1
+  TurnsLeft: 0
   degrees: 0
 --- !u!212 &1371180825
 SpriteRenderer:
@@ -705,6 +707,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 3
   orbitSize: 1
+  TurnsLeft: 0
   degrees: 0
 --- !u!212 &1688469879
 SpriteRenderer:
