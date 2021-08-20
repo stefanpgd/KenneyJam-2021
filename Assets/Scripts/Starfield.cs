@@ -18,7 +18,7 @@ public class Starfield : MonoBehaviour
             int randomStar = Random.Range(0, stars.Count);
             float randomRotation = Random.Range(-180, 180);
             float randomSize = Random.Range(minMaxSize.x, minMaxSize.y);
-            Vector2 randomPos = new Vector2(Random.Range(minMaxBoundariesX.x, minMaxBoundariesX.y), Random.Range(minMaxBoundariesY.x, minMaxBoundariesY.y));
+            Vector3 randomPos = new Vector3(Random.Range(minMaxBoundariesX.x, minMaxBoundariesX.y), Random.Range(minMaxBoundariesY.x, minMaxBoundariesY.y), 10);
 
             GameObject star = Instantiate(stars[randomStar]);
             star.transform.position = randomPos;
