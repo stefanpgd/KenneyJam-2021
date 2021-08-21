@@ -38,7 +38,6 @@ public class GameManager : MonoBehaviour
 
     public void ShipReachedStation()
     {
-        // TODO: Wait X time before loading next level
         nextLevelTimer = new Timer(timeForNextLevelFinish);
         nextLevelTimer.timerExpiredEvent += LoadNextLevel;
     }
@@ -55,7 +54,6 @@ public class GameManager : MonoBehaviour
 
     public void ShipLostInSpace() 
     {
-        // TODO: replace with restart prompt, "Flew into nothingness of space" 
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
