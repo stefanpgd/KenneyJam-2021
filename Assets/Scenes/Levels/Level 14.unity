@@ -674,6 +674,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5961787536979387832, guid: bf6e3c0bfbfd43140be57ae587ba0cfe, type: 3}
+      propertyPath: m_Radius
+      value: 1.2412837
+      objectReference: {fileID: 0}
+    - target: {fileID: 5961787536979387832, guid: bf6e3c0bfbfd43140be57ae587ba0cfe, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.010763501
+      objectReference: {fileID: 0}
+    - target: {fileID: 5961787536979387832, guid: bf6e3c0bfbfd43140be57ae587ba0cfe, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.1182275
+      objectReference: {fileID: 0}
     - target: {fileID: 5961787536979387833, guid: bf6e3c0bfbfd43140be57ae587ba0cfe, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -721,6 +733,14 @@ PrefabInstance:
     - target: {fileID: 5961787536979387838, guid: bf6e3c0bfbfd43140be57ae587ba0cfe, type: 3}
       propertyPath: m_Name
       value: Asteroid Field var 3 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5961787537464515530, guid: bf6e3c0bfbfd43140be57ae587ba0cfe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5961787537464515530, guid: bf6e3c0bfbfd43140be57ae587ba0cfe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf6e3c0bfbfd43140be57ae587ba0cfe, type: 3}
@@ -1285,7 +1305,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5759401200495159056, guid: dd509c1c1bbfff94ca002ef7b4166991, type: 3}
       propertyPath: orbitSize
-      value: 5
+      value: 5.5
       objectReference: {fileID: 0}
     - target: {fileID: 5759401200495159062, guid: dd509c1c1bbfff94ca002ef7b4166991, type: 3}
       propertyPath: m_Name
@@ -1297,7 +1317,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5759401200495159063, guid: dd509c1c1bbfff94ca002ef7b4166991, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.04
+      value: 4.27
       objectReference: {fileID: 0}
     - target: {fileID: 5759401200495159063, guid: dd509c1c1bbfff94ca002ef7b4166991, type: 3}
       propertyPath: m_LocalPosition.y
