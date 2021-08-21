@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Orbit
   - KillBorder
+  - SpaceStation
+  - Asteroid
   layers:
   - Default
   - TransparentFX

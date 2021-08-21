@@ -1,7 +1,10 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Orbit : MonoBehaviour
+public class SpaceStation : MonoBehaviour
 {
+
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float orbitSize;
     [SerializeField] private bool TurnsLeft;
@@ -10,6 +13,8 @@ public class Orbit : MonoBehaviour
     [SerializeField] private CircleCollider2D circleCollider;
     [SerializeField] private float baseArtRotationSpeed;
     [SerializeField] private float artRotationSpeedOffset;
+
+    private GameManager gameManager;
 
     private bool playerInOrbit;
     private Transform playerTransform;
@@ -21,6 +26,8 @@ public class Orbit : MonoBehaviour
 
     private void Start()
     {
+        gameManager = GameManager.Instance;
+
         startPosition = transform.position;
         orbitRing.localScale = new Vector3(orbitSize, orbitSize, orbitSize);
         circleCollider.radius *= orbitSize;
@@ -37,13 +44,8 @@ public class Orbit : MonoBehaviour
         Vector2 contactVector = pt.position - transform.position;
         float startAngle = Mathf.Atan2(contactVector.y, contactVector.x);
         angle = startAngle;
-    }
 
-    public void UnlockPlayerFromOrbit()
-    {
-        angle = 0;
-        playerTransform = null;
-        playerInOrbit = false;
+        gameManager.ShipReachedStation();
     }
 
     public float GetOrbitSpeed()

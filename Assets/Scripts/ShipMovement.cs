@@ -4,6 +4,7 @@ using UnityEngine;
 // TODO: allow the player to shoot
 // TODO: player dies when flying into asteroids
 // TODO: player wins when reaching target
+// TODO: Be able to lerp objects between two points within X time
 public class ShipMovement : MonoBehaviour
 {
     [SerializeField] private float boosts;
@@ -16,7 +17,19 @@ public class ShipMovement : MonoBehaviour
     private Orbit activeOrbit;
     private Vector3 velocity;
     private bool inOrbit = false;
+    private bool finished = false;
     private float moveSpeed;
+
+    #region Singleton
+    public static ShipMovement Instance;
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        }
+    }
+    #endregion
 
     private void Start()
     {
@@ -55,7 +68,10 @@ public class ShipMovement : MonoBehaviour
         }
         else
         {
-            transform.position += velocity * Time.deltaTime;
+            if(!finished)
+            {
+                transform.position += velocity * Time.deltaTime;
+            }
         }
     }
 
@@ -66,6 +82,13 @@ public class ShipMovement : MonoBehaviour
             inOrbit = true;
             activeOrbit = collision.gameObject.GetComponent<Orbit>();
             activeOrbit.LockPlayerIntoOrbit(transform);
+            lockEffect.Play();
+        }
+
+        if(collision.CompareTag(GAMETAGS.SPACE_STATION))
+        {
+            finished = true;
+            collision.gameObject.GetComponent<SpaceStation>().LockPlayerIntoOrbit(transform);
             lockEffect.Play();
         }
 
