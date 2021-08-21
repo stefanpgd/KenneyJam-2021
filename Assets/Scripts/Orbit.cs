@@ -3,6 +3,7 @@ using UnityEngine;
 public class Orbit : MonoBehaviour
 {
     [SerializeField] private float rotationSpeed;
+    [SerializeField] private float PlayerOrbitExitSpeed = 3f;
     [SerializeField] private float orbitSize;
     [SerializeField] private bool TurnsLeft;
     [SerializeField] private Transform orbitRing;
@@ -48,7 +49,7 @@ public class Orbit : MonoBehaviour
 
     public float GetOrbitSpeed()
     {
-        return rotationSpeed;
+        return PlayerOrbitExitSpeed;
     }
 
     private void Update()

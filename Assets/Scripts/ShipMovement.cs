@@ -1,12 +1,10 @@
 using UnityEngine;
 
-// TODO: visualize boosts in UI
 // TODO: allow the player to shoot
-// TODO: player dies when flying into asteroids, add effects
-// TODO: Add glitch effects when entering/exiting/reloading levels
+// TODO: add boost VFX and SFX when boosting
 public class ShipMovement : MonoBehaviour
 {
-    [SerializeField] private float boosts;
+    [SerializeField] private int boosts;
     [SerializeField] private float startMoveSpeed;
     [SerializeField] private Transform directionVector;
     [SerializeField] private ParticleSystem lockEffect;
@@ -112,5 +110,10 @@ public class ShipMovement : MonoBehaviour
 
             cameraShake.ScreenShake(crashShakeDuration, crashShakeIntensity);
         }
+    }
+
+    public int GetBoosts()
+    {
+        return boosts;
     }
 }

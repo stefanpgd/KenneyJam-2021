@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using SilverRogue.Tools;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float LoadOutDuration = 1f;
     [SerializeField] private Animator cameraEffect;
 
+    [SerializeField] private List<AudioClip> crashClips;
+    [SerializeField] private AudioSource audioSource;
 
     private Timer nextLevelTimer;
     private Timer restartLevel;
@@ -41,6 +44,10 @@ public class GameManager : MonoBehaviour
 
     public void ShipCrashed()
     {
+        int randomClip = Random.Range(0, crashClips.Count);
+        audioSource.clip = crashClips[randomClip];
+        audioSource.Play();
+
         restartLevel = new Timer(timeForLevelRestartCrash);
         restartLevel.timerExpiredEvent += Restart;
     }
