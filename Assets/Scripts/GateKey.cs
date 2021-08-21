@@ -7,6 +7,7 @@ public class GateKey : MonoBehaviour
     public bool PickedUp = false;
 
     [SerializeField] private SpriteRenderer visual;
+    [SerializeField] private SpriteRenderer circleVisual;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -16,6 +17,7 @@ public class GateKey : MonoBehaviour
             {
                 PickedUp = true;
                 visual.enabled = false;
+                circleVisual.enabled = false;
             }
         }
     }
