@@ -2,7 +2,7 @@ using UnityEngine;
 
 // TODO: visualize boosts in UI
 // TODO: allow the player to shoot
-// TODO: player dies when flying into asteroids
+// TODO: player dies when flying into asteroids, add effects
 // TODO: Add glitch effects when entering/exiting/reloading levels
 public class ShipMovement : MonoBehaviour
 {
@@ -10,13 +10,19 @@ public class ShipMovement : MonoBehaviour
     [SerializeField] private float startMoveSpeed;
     [SerializeField] private Transform directionVector;
     [SerializeField] private ParticleSystem lockEffect;
+    [SerializeField] private ParticleSystem shipExplosion;
+    [SerializeField] private SpriteRenderer shipImage;
+    [SerializeField] private float crashShakeIntensity;
+    [SerializeField] private float crashShakeDuration;
 
     private GameManager gameManager;
+    private CameraShake cameraShake;
 
     private Orbit activeOrbit;
     private Vector3 velocity;
     private bool inOrbit = false;
     private bool finished = false;
+    private bool crashed = false;
     private float moveSpeed;
 
     #region Singleton
@@ -33,6 +39,7 @@ public class ShipMovement : MonoBehaviour
     private void Start()
     {
         gameManager = GameManager.Instance;
+        cameraShake = CameraShake.Instance;
 
         moveSpeed = startMoveSpeed;
         velocity = directionVector.position - transform.position;
@@ -42,7 +49,7 @@ public class ShipMovement : MonoBehaviour
 
     private void Update()
     {
-        if(!finished)
+        if(!finished && !crashed)
         {
             if(inOrbit)
             {
@@ -98,7 +105,12 @@ public class ShipMovement : MonoBehaviour
 
         if(collision.CompareTag(GAMETAGS.ASTEROIDS))
         {
+            shipExplosion.Play();
+            crashed = true;
+            shipImage.enabled = false;
             gameManager.ShipCrashed();
+
+            cameraShake.ScreenShake(crashShakeDuration, crashShakeIntensity);
         }
     }
 }

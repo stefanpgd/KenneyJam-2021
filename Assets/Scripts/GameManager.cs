@@ -4,9 +4,11 @@ using SilverRogue.Tools;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private float timeForNextLevelLoad;
+    [SerializeField] private float timeForNextLevelFinish;
+    [SerializeField] private float timeForLevelRestartCrash;
 
     private Timer nextLevelTimer;
+    private Timer restartLevel;
     private ShipMovement shipMovement;
 
     #region Singleton
@@ -28,14 +30,14 @@ public class GameManager : MonoBehaviour
     public void ShipReachedStation()
     {
         // TODO: Wait X time before loading next level
-        nextLevelTimer = new Timer(timeForNextLevelLoad);
+        nextLevelTimer = new Timer(timeForNextLevelFinish);
         nextLevelTimer.timerExpiredEvent += LoadNextLevel;
     }
 
     public void ShipCrashed()
     {
-        // TODO: replace with restart prompt, "Crashed" 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        restartLevel = new Timer(timeForLevelRestartCrash);
+        restartLevel.timerExpiredEvent += ReloadLevel;
     }
 
     public void ShipLostInSpace() 
@@ -50,8 +52,13 @@ public class GameManager : MonoBehaviour
         Debug.LogError("OUT OF BOOSTS");    
     }
 
-    public void LoadNextLevel()
+    private void LoadNextLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    private void ReloadLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
