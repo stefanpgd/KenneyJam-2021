@@ -193,7 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 78223452, guid: fc9ce5a3983980c4d8ee1e36c3e8c767, type: 3}
       propertyPath: m_text
-      value: Even the largest of stations
+      value: Even the largest of stations and planets
       objectReference: {fileID: 0}
     - target: {fileID: 150732260, guid: fc9ce5a3983980c4d8ee1e36c3e8c767, type: 3}
       propertyPath: m_IsActive
