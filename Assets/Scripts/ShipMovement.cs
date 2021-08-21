@@ -3,6 +3,7 @@ using UnityEngine;
 // TODO: visualize boosts in UI
 // TODO: allow the player to shoot
 // TODO: player dies when flying into asteroids
+// TODO: Add glitch effects when entering/exiting/reloading levels
 public class ShipMovement : MonoBehaviour
 {
     [SerializeField] private float boosts;
@@ -41,32 +42,32 @@ public class ShipMovement : MonoBehaviour
 
     private void Update()
     {
-        if(inOrbit)
+        if(!finished)
         {
-            if(boosts > 0)
+            if(inOrbit)
             {
-                if(Input.GetKeyDown(KeyCode.Space))
+                if(boosts > 0)
                 {
-                    activeOrbit.UnlockPlayerFromOrbit();
-                    moveSpeed = activeOrbit.GetOrbitSpeed();
-                    activeOrbit = null;
+                    if(Input.GetKeyDown(KeyCode.Space))
+                    {
+                        activeOrbit.UnlockPlayerFromOrbit();
+                        moveSpeed = activeOrbit.GetOrbitSpeed();
+                        activeOrbit = null;
 
-                    velocity = directionVector.position - transform.position;
-                    velocity.Normalize();
-                    velocity *= moveSpeed;
+                        velocity = directionVector.position - transform.position;
+                        velocity.Normalize();
+                        velocity *= moveSpeed;
 
-                    inOrbit = false;
-                    boosts--;
+                        inOrbit = false;
+                        boosts--;
+                    }
+                }
+                else
+                {
+                    gameManager.ShipStranded();
                 }
             }
             else
-            {
-                gameManager.ShipStranded();
-            }
-        }
-        else
-        {
-            if(!finished)
             {
                 transform.position += velocity * Time.deltaTime;
             }
@@ -91,6 +92,11 @@ public class ShipMovement : MonoBehaviour
         }
 
         if(collision.CompareTag(GAMETAGS.KILL_BORDER))
+        {
+            gameManager.ShipLostInSpace();
+        }
+
+        if(collision.CompareTag(GAMETAGS.ASTEROIDS))
         {
             gameManager.ShipCrashed();
         }
