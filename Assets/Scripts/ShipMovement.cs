@@ -1,7 +1,5 @@
 using UnityEngine;
 
-// TODO: allow the player to shoot
-// TODO: add boost VFX and SFX when boosting
 public class ShipMovement : MonoBehaviour
 {
     [SerializeField] private int boosts;
