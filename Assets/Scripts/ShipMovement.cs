@@ -3,8 +3,6 @@ using UnityEngine;
 // TODO: visualize boosts in UI
 // TODO: allow the player to shoot
 // TODO: player dies when flying into asteroids
-// TODO: player wins when reaching target
-// TODO: Be able to lerp objects between two points within X time
 public class ShipMovement : MonoBehaviour
 {
     [SerializeField] private float boosts;
