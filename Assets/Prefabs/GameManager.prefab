@@ -1298,7 +1298,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: OUT OF BOOSTS
+  m_text: OUT OF FUEL
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: cb957928c44e0cf43b7e3f58d7f534ee, type: 2}
   m_sharedMaterial: {fileID: -2655050086879337934, guid: cb957928c44e0cf43b7e3f58d7f534ee, type: 2}
