@@ -1,5 +1,6 @@
 using UnityEngine;
 
+// TODO: Notify player when boosts are 0, Reset 
 public class ShipMovement : MonoBehaviour
 {
     [SerializeField] private int boosts;

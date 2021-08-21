@@ -15,7 +15,7 @@ public class Gate : MonoBehaviour
         {
             bool keysCollected = true;
             foreach(GateKey key in keys)
-            {
+            { 
                 if(!key.PickedUp)
                 {
                     keysCollected = false;

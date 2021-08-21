@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private float timeForLevelRestartCrash;
     [SerializeField] private float LoadOutDuration = 1f;
     [SerializeField] private Animator cameraEffect;
+    [SerializeField] private Animator outOfBoostAnimator;
 
     [SerializeField] private List<AudioClip> crashClips;
     [SerializeField] private AudioSource audioSource;
@@ -60,8 +61,7 @@ public class GameManager : MonoBehaviour
 
     public void ShipStranded() // out of boosts
     {
-        // TODO: replace with restart prompt "cant travel, out of boosts" with timer for delay
-        Debug.LogError("OUT OF BOOSTS");    
+        outOfBoostAnimator.SetTrigger("NotifyPlayer");
     }
 
     private void LoadNextLevel()

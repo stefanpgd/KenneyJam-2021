@@ -187,34 +187,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 78223450, guid: fc9ce5a3983980c4d8ee1e36c3e8c767, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 78223452, guid: fc9ce5a3983980c4d8ee1e36c3e8c767, type: 3}
-      propertyPath: m_text
-      value: Some stations are protected with gates
-      objectReference: {fileID: 0}
-    - target: {fileID: 150732260, guid: fc9ce5a3983980c4d8ee1e36c3e8c767, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 150732262, guid: fc9ce5a3983980c4d8ee1e36c3e8c767, type: 3}
-      propertyPath: m_text
-      value: GRAB THE KEY TO ACCESS THE STATION
-      objectReference: {fileID: 0}
-    - target: {fileID: 673247344, guid: fc9ce5a3983980c4d8ee1e36c3e8c767, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 90.99994
-      objectReference: {fileID: 0}
-    - target: {fileID: 1251186699, guid: fc9ce5a3983980c4d8ee1e36c3e8c767, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1340498971, guid: fc9ce5a3983980c4d8ee1e36c3e8c767, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1834101185631266633, guid: fc9ce5a3983980c4d8ee1e36c3e8c767, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -968,7 +940,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5759401200495159056, guid: dd509c1c1bbfff94ca002ef7b4166991, type: 3}
       propertyPath: TurnsLeft
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5759401200495159056, guid: dd509c1c1bbfff94ca002ef7b4166991, type: 3}
       propertyPath: orbitSize
