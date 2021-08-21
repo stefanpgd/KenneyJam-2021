@@ -52,6 +52,6 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        Debug.LogError("LOADING NEXT LEVEL");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
