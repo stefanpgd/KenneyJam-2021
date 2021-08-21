@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SpaceStation : MonoBehaviour
 {
-
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float orbitSize;
     [SerializeField] private bool TurnsLeft;
@@ -19,7 +18,6 @@ public class SpaceStation : MonoBehaviour
     private bool playerInOrbit;
     private Transform playerTransform;
     private float angle;
-    private Vector2 startPosition;
 
     private float artAngle;
     private float artRotationSpeed;
@@ -28,7 +26,6 @@ public class SpaceStation : MonoBehaviour
     {
         gameManager = GameManager.Instance;
 
-        startPosition = transform.position;
         orbitRing.localScale = new Vector3(orbitSize, orbitSize, orbitSize);
         circleCollider.radius *= orbitSize;
 
@@ -69,7 +66,8 @@ public class SpaceStation : MonoBehaviour
             float x = circleCollider.radius * Mathf.Cos(angle);
             float y = circleCollider.radius * Mathf.Sin(angle);
             Vector2 polarCoords = new Vector2(x, y);
-            Vector2 destination = polarCoords + startPosition;
+            Vector2 pos = transform.position;
+            Vector2 destination = polarCoords + pos;
             playerTransform.position = destination;
 
             float degrees = angle * Mathf.Rad2Deg;

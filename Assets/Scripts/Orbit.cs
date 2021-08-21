@@ -15,14 +15,12 @@ public class Orbit : MonoBehaviour
     private bool playerInOrbit;
     private Transform playerTransform;
     private float angle;
-    private Vector2 startPosition;
 
     private float artAngle;
     private float artRotationSpeed;
 
     private void Start()
     {
-        startPosition = transform.position;
         orbitRing.localScale = new Vector3(orbitSize, orbitSize, orbitSize);
         circleCollider.radius *= orbitSize;
 
@@ -68,7 +66,8 @@ public class Orbit : MonoBehaviour
             float x = circleCollider.radius * Mathf.Cos(angle);
             float y = circleCollider.radius * Mathf.Sin(angle);
             Vector2 polarCoords = new Vector2(x, y);
-            Vector2 destination = polarCoords + startPosition;
+            Vector2 pos = transform.position;
+            Vector2 destination = polarCoords + pos;
             playerTransform.position = destination;
 
             float degrees = angle * Mathf.Rad2Deg;
