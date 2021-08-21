@@ -6,9 +6,13 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private float timeForNextLevelFinish;
     [SerializeField] private float timeForLevelRestartCrash;
+    [SerializeField] private float LoadOutDuration = 1f;
+    [SerializeField] private Animator cameraEffect;
+
 
     private Timer nextLevelTimer;
     private Timer restartLevel;
+    private Timer reloadLevel;
     private ShipMovement shipMovement;
 
     #region Singleton
@@ -25,6 +29,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         shipMovement = ShipMovement.Instance;
+        cameraEffect.SetTrigger("LoadIn");
     }
 
     public void ShipReachedStation()
@@ -37,7 +42,7 @@ public class GameManager : MonoBehaviour
     public void ShipCrashed()
     {
         restartLevel = new Timer(timeForLevelRestartCrash);
-        restartLevel.timerExpiredEvent += ReloadLevel;
+        restartLevel.timerExpiredEvent += Restart;
     }
 
     public void ShipLostInSpace() 
@@ -54,10 +59,24 @@ public class GameManager : MonoBehaviour
 
     private void LoadNextLevel()
     {
+        cameraEffect.SetTrigger("LoadOut");
+        nextLevelTimer = new Timer(LoadOutDuration);
+        nextLevelTimer.timerExpiredEvent += LoadLevel;
+    }
+
+    private void LoadLevel()
+    {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    private void ReloadLevel()
+    private void Restart()
+    {
+        cameraEffect.SetTrigger("LoadOut");
+        reloadLevel = new Timer(LoadOutDuration);
+        reloadLevel.timerExpiredEvent += RestartLevel;
+    }
+
+    private void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
