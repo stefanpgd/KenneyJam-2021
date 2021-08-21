@@ -8,6 +8,7 @@ public class ShipMovement : MonoBehaviour
     [SerializeField] private ParticleSystem lockEffect;
     [SerializeField] private ParticleSystem shipExplosion;
     [SerializeField] private ParticleSystem boostEffect;
+    [SerializeField] private ParticleSystem gateEffect;
     [SerializeField] private SpriteRenderer shipImage;
     [SerializeField] private float crashShakeIntensity;
     [SerializeField] private float crashShakeDuration;
@@ -123,12 +124,20 @@ public class ShipMovement : MonoBehaviour
             if(collision.CompareTag(GAMETAGS.ASTEROIDS))
             {
                 boostEffect.Stop();
-
                 shipExplosion.Play();
                 crashed = true;
                 shipImage.enabled = false;
                 gameManager.ShipCrashed();
+                cameraShake.ScreenShake(crashShakeDuration, crashShakeIntensity);
+            }
 
+            if(collision.CompareTag(GAMETAGS.GATE))
+            {
+                boostEffect.Stop();
+                gateEffect.Play();
+                crashed = true;
+                shipImage.enabled = false;
+                gameManager.ShipCrashed();
                 cameraShake.ScreenShake(crashShakeDuration, crashShakeIntensity);
             }
         }
