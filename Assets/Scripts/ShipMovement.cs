@@ -90,46 +90,49 @@ public class ShipMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag(GAMETAGS.ORBIT))
+        if(!finished && !crashed)
         {
-            boostEffect.Stop();
+            if(collision.CompareTag(GAMETAGS.ORBIT))
+            {
+                boostEffect.Stop();
 
-            inOrbit = true;
-            audioSource.clip = orbitEnter;
-            audioSource.Play();
+                inOrbit = true;
+                audioSource.clip = orbitEnter;
+                audioSource.Play();
 
-            activeOrbit = collision.gameObject.GetComponent<Orbit>();
-            activeOrbit.LockPlayerIntoOrbit(transform);
-            lockEffect.Play();
-        }
+                activeOrbit = collision.gameObject.GetComponent<Orbit>();
+                activeOrbit.LockPlayerIntoOrbit(transform);
+                lockEffect.Play();
+            }
 
-        if(collision.CompareTag(GAMETAGS.SPACE_STATION))
-        {
-            boostEffect.Stop();
+            if(collision.CompareTag(GAMETAGS.SPACE_STATION))
+            {
+                boostEffect.Stop();
 
-            audioSource.clip = orbitEnter;
-            audioSource.Play();
+                audioSource.clip = orbitEnter;
+                audioSource.Play();
 
-            finished = true;
-            collision.gameObject.GetComponent<SpaceStation>().LockPlayerIntoOrbit(transform);
-            lockEffect.Play();
-        }
+                finished = true;
+                collision.gameObject.GetComponent<SpaceStation>().LockPlayerIntoOrbit(transform);
+                lockEffect.Play();
+            }
 
-        if(collision.CompareTag(GAMETAGS.KILL_BORDER))
-        {
-            gameManager.ShipLostInSpace();
-        }
+            if(collision.CompareTag(GAMETAGS.KILL_BORDER))
+            {
+                gameManager.ShipLostInSpace();
+            }
 
-        if(collision.CompareTag(GAMETAGS.ASTEROIDS))
-        {
-            boostEffect.Stop();
+            if(collision.CompareTag(GAMETAGS.ASTEROIDS))
+            {
+                boostEffect.Stop();
 
-            shipExplosion.Play();
-            crashed = true;
-            shipImage.enabled = false;
-            gameManager.ShipCrashed();
+                shipExplosion.Play();
+                crashed = true;
+                shipImage.enabled = false;
+                gameManager.ShipCrashed();
 
-            cameraShake.ScreenShake(crashShakeDuration, crashShakeIntensity);
+                cameraShake.ScreenShake(crashShakeDuration, crashShakeIntensity);
+            }
         }
     }
 

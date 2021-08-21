@@ -12,8 +12,12 @@ public class Asteroid : MonoBehaviour
 
     private void Start()
     {
-        float scaleOffset = Random.Range(-scaleModifier, scaleModifier);
-        transform.localScale = transform.localScale * (1 + scaleOffset);
+        if(scaleModifier != 0)
+        {
+            float scaleOffset = Random.Range(-scaleModifier, scaleModifier);
+            transform.localScale = transform.localScale * (1 + scaleOffset);
+        }
+       
         rotationSpeed = Random.Range(randomRotationSpeed - offsetRotationSpeed, randomRotationSpeed + offsetRotationSpeed);
         angle = Random.Range(-180f, 180f);
 
