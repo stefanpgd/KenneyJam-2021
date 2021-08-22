@@ -970,6 +970,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1494482281690176437, guid: 8789c08f13793414994638124881fcdb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 1494482282611523162, guid: 8789c08f13793414994638124881fcdb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.42
+      objectReference: {fileID: 0}
     - target: {fileID: 1494482282791012240, guid: 8789c08f13793414994638124881fcdb, type: 3}
       propertyPath: m_Name
       value: Kill Boundaries
@@ -1017,6 +1025,14 @@ PrefabInstance:
     - target: {fileID: 1494482282791012241, guid: 8789c08f13793414994638124881fcdb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1494482282857786509, guid: 8789c08f13793414994638124881fcdb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 1494482283341513423, guid: 8789c08f13793414994638124881fcdb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -6.54
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8789c08f13793414994638124881fcdb, type: 3}
