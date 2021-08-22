@@ -8,6 +8,7 @@ public class GateKey : MonoBehaviour
 
     [SerializeField] private SpriteRenderer visual;
     [SerializeField] private SpriteRenderer circleVisual;
+    [SerializeField] private ParticleSystem effect;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -18,6 +19,7 @@ public class GateKey : MonoBehaviour
                 PickedUp = true;
                 visual.enabled = false;
                 circleVisual.enabled = false;
+                effect.Stop();
             }
         }
     }
