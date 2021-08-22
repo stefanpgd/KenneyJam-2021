@@ -193,7 +193,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 78223452, guid: fc9ce5a3983980c4d8ee1e36c3e8c767, type: 3}
       propertyPath: m_text
-      value: Even the largest  stations and planets
+      value: Even the largest stations and planets
       objectReference: {fileID: 0}
     - target: {fileID: 150732260, guid: fc9ce5a3983980c4d8ee1e36c3e8c767, type: 3}
       propertyPath: m_IsActive
@@ -388,7 +388,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 265630822650579904, guid: bf4ecc7f9d6741147b885b957732e0e9, type: 3}
       propertyPath: boosts
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 265630822650579904, guid: bf4ecc7f9d6741147b885b957732e0e9, type: 3}
       propertyPath: startMoveSpeed
