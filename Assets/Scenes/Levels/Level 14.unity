@@ -608,6 +608,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lerping Orbit
       objectReference: {fileID: 0}
+    - target: {fileID: 9103552646424767806, guid: a783ad918d1d91241b3a3dc4695d1766, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103552646424767806, guid: a783ad918d1d91241b3a3dc4695d1766, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a783ad918d1d91241b3a3dc4695d1766, type: 3}
 --- !u!1001 &784637097
@@ -884,6 +892,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid Right
       objectReference: {fileID: 0}
+    - target: {fileID: 4478337035481655265, guid: aae62a1252e4f754c9a1dac6df21ef41, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728729480816310484, guid: aae62a1252e4f754c9a1dac6df21ef41, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aae62a1252e4f754c9a1dac6df21ef41, type: 3}
 --- !u!1001 &1275119589
@@ -1019,6 +1035,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2341989919208739102, guid: a783ad918d1d91241b3a3dc4695d1766, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4991808807581850231, guid: a783ad918d1d91241b3a3dc4695d1766, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6998515775466616933, guid: a783ad918d1d91241b3a3dc4695d1766, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.168
@@ -1086,6 +1110,14 @@ PrefabInstance:
     - target: {fileID: 6998515777042320206, guid: a783ad918d1d91241b3a3dc4695d1766, type: 3}
       propertyPath: m_Name
       value: Lerping Orbit (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103552646424767806, guid: a783ad918d1d91241b3a3dc4695d1766, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103552646424767806, guid: a783ad918d1d91241b3a3dc4695d1766, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a783ad918d1d91241b3a3dc4695d1766, type: 3}

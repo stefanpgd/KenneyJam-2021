@@ -403,11 +403,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2254590248756806900, guid: aae62a1252e4f754c9a1dac6df21ef41, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.013967
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2254590248756806900, guid: aae62a1252e4f754c9a1dac6df21ef41, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.023152
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478337035481655265, guid: aae62a1252e4f754c9a1dac6df21ef41, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728729480816310484, guid: aae62a1252e4f754c9a1dac6df21ef41, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aae62a1252e4f754c9a1dac6df21ef41, type: 3}
@@ -1117,6 +1125,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2341989919208739102, guid: a783ad918d1d91241b3a3dc4695d1766, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3317587297231030855, guid: a783ad918d1d91241b3a3dc4695d1766, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6998515775466616933, guid: a783ad918d1d91241b3a3dc4695d1766, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.75
@@ -1184,6 +1200,14 @@ PrefabInstance:
     - target: {fileID: 6998515777042320206, guid: a783ad918d1d91241b3a3dc4695d1766, type: 3}
       propertyPath: m_Name
       value: Lerping Orbit
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103552646424767806, guid: a783ad918d1d91241b3a3dc4695d1766, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9103552646424767806, guid: a783ad918d1d91241b3a3dc4695d1766, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9103552647284243104, guid: a783ad918d1d91241b3a3dc4695d1766, type: 3}
       propertyPath: rotationSpeed
