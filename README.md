@@ -4,7 +4,7 @@
 ### Result: https://itch.io/jam/kenney-jam-2021/rate/1168257
 --- 
 ### Placement:
-- **2nd** place for Visuals
+- 🥈 **2nd** place for Visuals
 - **7th** place Overall 
 - **24th** place for Theme
 - **32nd** place for Gameplay
